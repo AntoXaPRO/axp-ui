@@ -1,0 +1,48 @@
+{
+	"name": "axp-ui",
+	"descriiption": "My helper ui lib",
+	"version": "1.5.16",
+	"homepage": "https://antoxahub.ru/antoxa/axp-ui",
+	"repository": {
+		"type": "git",
+		"url": "https://antoxahub.ru/antoxa/axp-ui.git"
+	},
+	"module": "./dist/index.js",
+	"exports": {
+		".": {
+			"import": "./dist/index.js"
+		},
+		"./styles/": [
+			"./src/css/"
+		],
+		"./tailwind.config": "./tailwind.config.ts"
+	},
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist",
+		"tsconfig.json",
+		"tailwind.config.ts",
+		"src/css"
+	],
+	"scripts": {
+		"build": "rollup -c --configPlugin rollup-plugin-typescript2",
+		"prepare": "npm run build"
+	},
+	"dependencies": {
+		"axp-ts": "^1.9.6",
+		"rollup-plugin-typescript": "^1.0.1",
+		"vue": "^3.3.4"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.25",
+		"prettier": "^2.8.8",
+		"rollup": "^3.26.2",
+		"rollup-plugin-sass": "^1.12.19",
+		"rollup-plugin-typescript2": "^0.34.1",
+		"rollup-plugin-vue": "^6.0.0",
+		"sass": "^1.63.6",
+		"tailwindcss": "^3.3.2",
+		"tslib": "^2.6.0"
+	}
+}

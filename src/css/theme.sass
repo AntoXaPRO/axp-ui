@@ -1,0 +1,30 @@
+.ui
+  &-field
+    &.disabled
+      .input
+        @apply bg-light/10 text-dark/60
+    &.error
+      .label,
+      .input,
+      .message
+        @apply text-error border-error
+  &-btn
+    &.primary
+      @apply bg-primary text-white
+    &.accent
+      @apply bg-accent text-white
+    &.dark
+      @apply bg-dark text-white
+    &.light
+      @apply bg-light text-white
+    &.error
+      @apply bg-error text-white
+    &.success
+      @apply bg-success text-white
+    &:disabled
+      @apply text-white bg-light border-light
+  &-btn,
+  &-field .input
+      @apply rounded
+  &-field .input
+    @apply bg-white
