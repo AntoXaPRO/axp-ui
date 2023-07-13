@@ -11,16 +11,17 @@ const props = defineProps<{
 const emit = defineEmits<{ (e: 'update:modelValue', v?: boolean): void }>()
 
 // Value.
-const valueStr = computed({
-	get: () => {
-		if (props.modelValue) return 'on'
-	},
-	set: val => {
-		if (val !== undefined) emit('update:modelValue', !props.modelValue)
-	}
-})
+const value = computed(() => props.modelValue)
+
+// Handlers.
+const updateHandler = () => emit('update:modelValue', !props.modelValue)
 </script>
 
 <template>
-	<ui-field type="checkbox" class="ui-field-checkbox" v-model="valueStr" />
+	<ui-field
+		type="checkbox"
+		class="ui-field-checkbox"
+		:checked="value"
+		@input="updateHandler"
+	/>
 </template>

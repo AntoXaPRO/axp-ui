@@ -6,6 +6,7 @@ const props = defineProps<{
 	error?: string
 	readonly?: boolean
 	disabled?: boolean
+	checked?: boolean
 	tag?: 'input' | 'textarea' | 'select'
 }>()
 
@@ -58,6 +59,7 @@ const inputHandler = (val: any) => {
 			:value="props.modelValue"
 			:reatonly="props.readonly"
 			:disabled="props.disabled"
+			:checked="checked"
 			@input="inputHandler"
 			class="input"
 		/>
