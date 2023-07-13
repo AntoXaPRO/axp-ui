@@ -1,6 +1,5 @@
 import { defineConfig } from 'rollup'
-
-import ts from 'rollup-plugin-typescript2'
+import typescript from 'rollup-plugin-typescript2'
 import vue from 'rollup-plugin-vue'
 import sass from 'rollup-plugin-sass'
 
@@ -10,6 +9,6 @@ export default defineConfig({
 		format: 'esm',
 		dir: 'dist'
 	},
-	plugins: [ts(), vue(), sass()],
+	plugins: [typescript(), vue(), sass()],
 	external: ['vue', 'axp-ts'],
 })
