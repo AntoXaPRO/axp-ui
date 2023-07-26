@@ -15,5 +15,6 @@ const options: any[] = [
 </script>
 
 <template>
+	<p>Select gender</p>
 	<ui-field-select :options="options" class="ui-field-select-gender" />
 </template>

@@ -1,30 +1,45 @@
 .ui
+  &-btn
+    @apply outline-none
+    &:hover:not(:active)
+      @apply bg-opacity-80
+
+  &-btn,
+  &-alert
+    @apply bg-white
+    &.primary
+      @apply bg-primary border-primary text-white
+    &.accent
+      @apply bg-accent border-accent text-white
+    &.info
+      @apply bg-info border-info text-white
+    &.success
+      @apply bg-success border-success text-white
+    &.warning
+      @apply bg-warning border-warning text-white
+    &.error
+      @apply bg-error border-error text-white
+    &.dark
+      @apply bg-dark border-dark text-white
+    &.light
+      @apply bg-light
+    &:disabled
+      @apply text-white bg-light border-light
+
   &-field
-    &.disabled
-      .input
-        @apply bg-light/10 text-dark/60
     &.error
       .label,
       .input,
       .message
         @apply text-error border-error
-  &-btn
-    &.primary
-      @apply bg-primary text-white
-    &.accent
-      @apply bg-accent text-white
-    &.dark
-      @apply bg-dark text-white
-    &.light
-      @apply bg-light text-white
-    &.error
-      @apply bg-error text-white
-    &.success
-      @apply bg-success text-white
-    &:disabled
-      @apply text-white bg-light border-light
+    &.disabled
+      .input
+        @apply bg-light/10 text-dark/60
+  &-field .input
+    @apply bg-white dark:bg-white/10
+
   &-btn,
+  &-alert,
   &-field .input
       @apply rounded
-  &-field .input
-    @apply bg-white
+

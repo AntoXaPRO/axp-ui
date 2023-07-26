@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import { computed } from 'vue'
 import UiField from './Field.vue'
 
@@ -17,7 +16,7 @@ const displayValue = computed({
 </script>
 
 <template>
-	<ui-field tag="select" class="ui-field-select" v-model="displayValue">
+	<ui-field tag="select" class="ui-field-select">
 		<option v-for="opt in props.options" :value="opt.value">
 			{{opt.text}}
 		</option>

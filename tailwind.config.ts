@@ -6,11 +6,15 @@ const config: Config = {
 		extend: {
 			colors: {
 				primary: '#3c87a4',
-				accent: '#f00000',
+				accent: '#ab6dfd',
+
 				dark: '#363636',
-				light: '#cdcdcd',
-				error: '#f00000',
-				success: '#07b859'
+				light: '#f1f1f1',
+
+				info: '#2196f3',
+				warning: '#ff9800',
+				success: '#2dd633',
+				error: '#f00000'
 			},
 			container: {
 				center: true,

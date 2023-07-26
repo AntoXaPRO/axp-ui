@@ -7,7 +7,7 @@ import UiBtn from './Btn.vue'
 
 // Props.
 const props = defineProps<{
-	modelValue: BaseFormModel<any>
+	modelValue?: BaseFormModel<any>
 	title?: string
 	noTitle?: boolean
 	messages?: TNotificationItem[]

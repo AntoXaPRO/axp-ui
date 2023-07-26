@@ -79,7 +79,7 @@ const inputHandler = (val: any) => {
 			@input="inputHandler"
 			class="input"
 		>
-			<slot />
+			<!-- <slot v-if="$slots.default" name="default" /> -->
 		</select>
 		<div v-if="props.error" class="message">{{ props.error }}</div>
 	</div>
