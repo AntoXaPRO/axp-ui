@@ -5,6 +5,8 @@ import { computed } from 'vue'
 // Props.
 const props = defineProps<{
 	modelValue?: boolean
+	disabled?: boolean
+	readonly?: boolean
 }>()
 
 // Emits.
@@ -22,6 +24,8 @@ const updateHandler = () => emit('update:modelValue', !props.modelValue)
 		type="checkbox"
 		class="ui-field-checkbox"
 		:checked="value"
+		:disabled="props.disabled"
+		:readonly="props.readonly"
 		@input="updateHandler"
 	/>
 </template>

@@ -4,7 +4,7 @@ import UiField from './Field.vue'
 
 const props = defineProps<{
 	modelValue?: string | number,
-	options: { value: string, text: string }[]
+	options: { text: string, value: any }[]
 }>()
 
 const emit = defineEmits<{ (e: 'update:modelValue', v?: any): void }>()
@@ -16,9 +16,10 @@ const displayValue = computed({
 </script>
 
 <template>
-	<ui-field tag="select" class="ui-field-select">
-		<option v-for="opt in props.options" :value="opt.value">
-			{{opt.text}}
-		</option>
-	</ui-field>
+	<ui-field
+		tag="select"
+		class="ui-field-select"
+		:options="props.options"
+		v-model="displayValue"
+	/>
 </template>

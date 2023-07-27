@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { GenderEnum } from 'axp-ts'
+import { GenderEnum, TGender } from 'axp-ts'
 import UiFieldSelect from './FieldSelect.vue'
 
-const options: any[] = [
+const options: { text: string, value: TGender }[] = [
 	{
 		text: 'Мужской',
 		value: GenderEnum.man
@@ -15,6 +15,5 @@ const options: any[] = [
 </script>
 
 <template>
-	<p>Select gender</p>
-	<ui-field-select :options="options" class="ui-field-select-gender" />
+	<ui-field-select class="ui-field-select-gender" :options="options" />
 </template>

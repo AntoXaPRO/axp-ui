@@ -28,37 +28,57 @@ p
   &-btn
     @apply px-4 border
     @apply flex justify-center items-center
-    > *:not(:last-child)
-      @apply mr-1
-    > .ui-icon:first-child
-      @apply ml-[-5px]
+    // > *:not(:last-child)
+    //   @apply mr-1
+    // > .ui-icon:first-child
+    //   @apply ml-[-5px]
 
   &-field
     .label
       @apply mb-1
     .input
       @apply block w-full border px-2 py-2
-      outline: none
     .message
       @apply mt-1 text-sm
 
     &-checkbox
       @apply flex items-center justify-start
+      .label
+        @apply mb-0
       .input
-        @apply w-max order-first mr-4
-        @apply w-[24px] h-[24px] border rounded
+        @apply w-max order-first mr-2
+        @apply w-[24px] h-[24px] min-w-[24px] min-h-[24px]
+        @apply border rounded
 
     &-textarea
       .input
         @apply min-h-[80px]
 
   &-alert
-    @apply border p-2
+    @apply relative border
     &:not(:last-child)
       @apply mb-2
+    &-close
+      @apply absolute top-0 right-0 p-2
+      .ui-icon
+        @apply cursor-pointer
+    &-content
+      @apply p-3
 
   &-icon
     @apply block w-[24px]
+
+  &-card
+    @apply flex flex-col
+    @apply border bg-white
+    &-head
+      @apply pt-3 px-3
+    &-body
+      @apply p-3
+      @apply flex-1
+    &-actions
+      @apply pb-3 px-3
+      @apply flex gap-2
 
   &-form
     &-header
@@ -74,3 +94,19 @@ p
       @apply flex items-center pt-4
       > *:not(:last-child)
         @apply mr-2
+
+  &-table
+    @apply w-full
+    thead
+      tr
+        th
+          @apply py-2 px-3
+          @apply text-sm text-left
+    tbody
+      tr
+        &:hover
+          @apply bg-light
+        &:not(:first-child)
+          @apply border-t
+        td
+          @apply p-2

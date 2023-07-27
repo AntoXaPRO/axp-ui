@@ -1,9 +1,4 @@
 .ui
-  &-btn
-    @apply outline-none
-    &:hover:not(:active)
-      @apply bg-opacity-80
-
   &-btn,
   &-alert
     @apply bg-white
@@ -27,19 +22,23 @@
       @apply text-white bg-light border-light
 
   &-field
+    .input
+      @apply bg-white text-dark
     &.error
       .label,
       .input,
       .message
         @apply text-error border-error
-    &.disabled
+    &:disabled
       .input
         @apply bg-light/10 text-dark/60
-  &-field .input
-    @apply bg-white dark:bg-white/10
+  &-btn
+    @apply outline-none
+    &:hover:not(:active)
+      @apply bg-opacity-80
 
   &-btn,
   &-alert,
-  &-field .input
+  &-field .input,
+  &-card
       @apply rounded
-
