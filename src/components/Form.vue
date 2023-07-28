@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import type { TNotificationItem, BaseFormModel } from 'axp-ts'
+
 import { ref, computed, watch } from 'vue'
+import { colors } from '../colors'
 
 import UiBtn from './Btn.vue'
+import UiAlert from './Alert.vue'
 
 // Props.
 const props = defineProps<{
@@ -49,7 +52,10 @@ const load = ref(false)
 watch(load, val => emit('update:load', val))
 
 const messages: Ref<TNotificationItem[]> = ref(props.messages || [])
-watch(() => props.messages, (val) => messages.value = val || [])
+watch(
+	() => props.messages,
+	val => (messages.value = val || [])
+)
 
 // Handlers.
 const submitHandler = async () => {
@@ -92,6 +98,11 @@ const submitHandler = async () => {
 		emit('submit')
 	}
 }
+
+// Etc.
+const getColorMessage = (item: TNotificationItem) => {
+	return colors.includes(item.code) ? item.code : 'error'
+}
 </script>
 
 <template>
@@ -100,9 +111,11 @@ const submitHandler = async () => {
 			<h3 class="ui-form-title">{{ title }}</h3>
 		</div>
 		<div v-if="messages.length" class="ui-form-messages">
-			<div v-for="message in messages" :class="'text-' + message.code">
-				{{ message.text }}
-			</div>
+			<ui-alert
+				v-for="item in messages"
+				:value="item.text"
+				:color="colors.includes(item.code) ? item.code : 'error'"
+			/>
 		</div>
 		<div class="ui-form-body">
 			<component

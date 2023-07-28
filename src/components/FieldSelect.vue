@@ -3,7 +3,8 @@ import { computed } from 'vue'
 import UiField from './Field.vue'
 
 const props = defineProps<{
-	modelValue?: string | number,
+	modelValue?: string | string[] | number | number[],
+	multiple?: boolean
 	options: { text: string, value: any }[]
 }>()
 
@@ -20,6 +21,7 @@ const displayValue = computed({
 		tag="select"
 		class="ui-field-select"
 		:options="props.options"
+		:multiple="props.multiple"
 		v-model="displayValue"
 	/>
 </template>

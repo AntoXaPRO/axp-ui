@@ -30,11 +30,11 @@ const inputHandler = (index: number) => {
 </script>
 
 <template>
-	<div class="ui-picker-days">
+	<div class="ui-picker ui-picker-days">
 		<div v-if="props.label" class="label mb-2">
 			<span>{{props.label}}:</span>
 		</div>
-		<div class="flex items-center">
+		<div class="ui-picker-content flex items-center">
 			<ui-field-checkbox
 				v-for="(item, index) in days"
 				class="mr-4"

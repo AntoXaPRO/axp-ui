@@ -10,6 +10,7 @@ const props = defineProps<{
 	tag?: 'input' | 'textarea' | 'select'
 	checked?: boolean
 	options?: { text: string, value: any }[]
+	multiple?: boolean
 }>()
 
 // Emits.
@@ -57,6 +58,7 @@ const inputHandler = (val: any) => {
 		<div v-if="props.label" class="label">{{ props.label }}</div>
 		<input
 			v-if="!tag || tag === 'input'"	
+			class="input"
 			:type="props.type"
 			:value="props.modelValue"
 			:readonly="props.readonly"
@@ -64,25 +66,25 @@ const inputHandler = (val: any) => {
 			:checked="checked"
 			:placeholder="props.placeholder"
 			@input="inputHandler"
-			class="input"
 		/>
 		<textarea
 			v-if="tag === 'textarea'"
+			class="input"
 			:value="props.modelValue"
 			:readonly="props.readonly"
 			:disabled="props.disabled"
 			:placeholder="props.placeholder"
 			@input="inputHandler"
-			class="input"
 		/>
 		<select
 			v-if="tag === 'select'"
+			class="input"
 			:value="props.modelValue"
 			:readonly="props.readonly"
 			:disabled="props.disabled"
 			:placeholder="props.placeholder"
+			:multiple="props.multiple"
 			@input="inputHandler"
-			class="input"
 		>
 			<option v-for="item in props.options" :value="item.value">
 				{{ item.text }}
