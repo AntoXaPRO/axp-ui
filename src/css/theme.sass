@@ -1,3 +1,14 @@
+// Layouts.
+.layout
+  @apply bg-light/10 text-dark
+  @apply dark:bg-black dark:text-light
+  *
+    @apply border-light dark:border-light/40
+  a
+    @apply text-primary
+
+// body
+//   *
 .ui
   &-btn,
   &-alert
@@ -23,7 +34,7 @@
 
   &-field
     .input
-      @apply bg-white text-dark
+      @apply bg-white dark:bg-white/10 text-dark dark:text-white
     &.error
       .label,
       .input,

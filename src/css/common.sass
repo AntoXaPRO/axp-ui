@@ -1,24 +1,31 @@
-body
-  @apply text-dark
+// Layouts.
+.layout
+  @apply flex flex-col h-full
+  @apply min-w-[320px]
+  min-height: 100vh
+  overflow: hidden
   *
     @apply text-base
+  main
+    @apply flex flex-col flex-1
 
-h1
-  @apply text-xl md:text-2xl font-bold
-h2
-  @apply text-lg md:text-xl font-bold
-h3
-  @apply text-base md:text-lg font-bold
-h4
-  @apply text-sm md:text-base font-bold
+  h1
+    @apply text-xl md:text-2xl font-bold
+  h2
+    @apply text-lg md:text-xl font-bold
+  h3
+    @apply text-base md:text-lg font-bold
+  h4
+    @apply text-sm md:text-base font-bold
 
-p
-  &:not(:last-child)
+  p
+    &:not(:last-child)
+      @apply mb-4
+
+  .title
     @apply mb-4
 
-.title
-  @apply mb-4
-
+// Ui.
 .ui
   &-btn,
   &-field .input
@@ -133,3 +140,6 @@ p
             @apply text-dark
       &-content
         @apply p-3
+  &-toggle-theme
+    .ui-icon
+      @apply cursor-pointer
