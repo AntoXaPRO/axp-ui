@@ -51,7 +51,7 @@ const title = computed(() => {
 const load = ref(false)
 watch(load, val => emit('update:load', val))
 
-const messages: Ref<TNotificationItem[]> = ref(props.messages || [])
+const messages = ref<TNotificationItem[]>(props.messages || [])
 watch(
 	() => props.messages,
 	val => (messages.value = val || [])
@@ -101,7 +101,7 @@ const submitHandler = async () => {
 
 // Etc.
 const getColorMessage = (item: TNotificationItem) => {
-	return colors.includes(item.code) ? item.code : 'error'
+	return colors.find(e => e === item.code) ?? 'error'
 }
 </script>
 
@@ -114,7 +114,7 @@ const getColorMessage = (item: TNotificationItem) => {
 			<ui-alert
 				v-for="item in messages"
 				:value="item.text"
-				:color="colors.includes(item.code) ? item.code : 'error'"
+				:color="getColorMessage(item)"
 			/>
 		</div>
 		<div class="ui-form-body">

@@ -11,4 +11,4 @@ export enum ColorEnum {
 
 export type TColor = keyof typeof ColorEnum
 
-export const colors = Object.keys(ColorEnum)
+export const colors = <TColor[]>Object.keys(ColorEnum)
