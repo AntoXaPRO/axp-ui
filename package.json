@@ -1,7 +1,7 @@
 {
 	"name": "axp-ui",
 	"descriiption": "My helper ui lib",
-	"version": "1.7.0",
+	"version": "1.7.1",
 	"homepage": "https://antoxahub.ru/antoxa/axp-ui",
 	"repository": {
 		"type": "git",
@@ -24,7 +24,7 @@
 		"dist",
 		"tsconfig.json",
 		"tailwind.config.ts",
-		"src/css"
+		"src/style"
 	],
 	"scripts": {
 		"build": "vite build",
