@@ -15,5 +15,5 @@ const options: { text: string, value: TGender }[] = [
 </script>
 
 <template>
-	<ui-field-select class="ui-field-select-gender" :options="options" />
+	<ui-field-select :options="options" />
 </template>

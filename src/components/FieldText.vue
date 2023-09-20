@@ -1,7 +1,16 @@
+<script lang="ts">
+import type { TUiFieldInputProps } from './FieldInput.vue'
+
+export type TUiFieldText = TUiFieldInputProps<string>
+</script>
+
 <script setup lang="ts">
-import UiField from './Field.vue'
+import UiFieldInput from './FieldInput.vue'
+
+// Props.
+const props = defineProps<TUiFieldText>()
 </script>
 
 <template>
-	<ui-field class="ui-field-text" />
+	<ui-field-input :="{ ...props, ...$attrs }" type="text" />
 </template>

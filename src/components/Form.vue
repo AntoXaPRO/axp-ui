@@ -1,16 +1,8 @@
-<script setup lang="ts">
-import type { Ref } from 'vue'
-import type { TNotificationItem, BaseFormModel } from 'axp-ts'
+<script lang="ts">
+import type { TNotificationItem, IFormModel } from 'axp-ts'
 
-import { ref, computed, watch } from 'vue'
-import { colors } from '../colors'
-
-import UiBtn from './Btn.vue'
-import UiAlert from './Alert.vue'
-
-// Props.
-const props = defineProps<{
-	modelValue?: BaseFormModel<any>
+export type TUiFormProps<T = any> = {
+	modelValue?: IFormModel<T>
 	title?: string
 	noTitle?: boolean
 	messages?: TNotificationItem[]
@@ -18,16 +10,30 @@ const props = defineProps<{
 	disabled?: boolean
 	load?: boolean
 	showAll?: boolean
-	fn?: (obj?: any) => Promise<any>
-}>()
+	fn?: (obj?: T) => Promise<T>
+}
 
-// Emits.
-const emit = defineEmits<{
-	(e: 'submit', v?: BaseFormModel<any>): void
-	(e: 'failedValid', v?: BaseFormModel<any>): void
+export type TUiFormEmits<T = any> = {
+	(e: 'submit', v?: IFormModel<T>): void
+	(e: 'failedValid', v?: IFormModel<T>): void
 	(e: 'update:load', v: boolean): void
 	(e: 'fnCompleted', v?: any): void
-}>()
+}
+
+</script>
+
+<script setup lang="ts">
+import { ref, computed, watch } from 'vue'
+import UiBtn from './Btn.vue'
+import UiAlert from './Alert.vue'
+
+import { colors } from '../colors'
+
+// Props.
+const props = defineProps<TUiFormProps>()
+
+// Emits.
+const emit = defineEmits<TUiFormEmits>()
 
 // Controls.
 const ctrls = computed(() => {
@@ -35,7 +41,6 @@ const ctrls = computed(() => {
 		if (props.showAll) {
 			return props.modelValue.ctrls
 		} else {
-			// @ts-ignore
 			return props.modelValue.ctrls.filter(e => !e.hidden)
 		}
 	}
@@ -76,7 +81,6 @@ const submitHandler = async () => {
 							if (err.code && err.text)
 								if (
 									props.modelValue &&
-									// @ts-ignore
 									props.modelValue.ctrls.find(e => e.key === err.code)
 								) {
 									props.modelValue.setValidError(err.code, err.text)
@@ -118,18 +122,23 @@ const getColorMessage = (item: TNotificationItem) => {
 			/>
 		</div>
 		<div class="ui-form-body">
-			<component
-				v-if="props.modelValue"
-				v-for="ctrl in ctrls"
-				:is="ctrl.component"
-				:label="ctrl.label"
-				v-model="props.modelValue.obj[ctrl.key]"
-				v-model:error="props.modelValue._errors[ctrl.key]"
-				:readonly="ctrl.readonly"
-				:disabled="load || props.load || props.disabled || ctrl.disabled"
-				:class="'ui-field-' + ctrl.key"
-			/>
+			<slot v-if="$slots.pre" name="pre" />
 			<slot v-if="$slots.default" name="default" />
+			<template v-else>
+				<component
+					v-if="props.modelValue"
+					v-for="ctrl in ctrls"
+					:is="ctrl.component"
+					:label="ctrl.label"
+					v-model="props.modelValue.obj[ctrl.key]"
+					v-model:error="props.modelValue._errors[ctrl.key]"
+					:readonly="ctrl.readonly"
+					:disabled="load || props.load || props.disabled || ctrl.disabled"
+					:description="ctrl.description"
+					:class="'ui-field-key-' + ctrl.key"
+				/>
+			</template>
+			<slot v-if="$slots.post" name="post" />
 		</div>
 		<div v-if="!props.noActions" class="ui-form-actions">
 			<slot v-if="$slots.actions" name="actions" />

@@ -1,7 +1,11 @@
-<script setup lang="ts">
-const props = defineProps<{
+<script lang="ts">
+export type TUiCardProps = {
 	title?: string
-}>()
+}
+</script>
+
+<script setup lang="ts">
+const props = defineProps<TUiCardProps>()
 </script>
 
 <template>

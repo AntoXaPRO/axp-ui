@@ -1,32 +1,39 @@
+<script lang="ts">
+import type { TUiFieldInputProps, TUiFieldInputEmits } from './FieldInput.vue'
+
+export type TUiFieldDateProps = TUiFieldInputProps<Date>
+export type TUiFieldDateEmits = TUiFieldInputEmits
+</script>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { cFieldsSchema, getDateCommonFormat } from 'axp-ts'
+import UiFieldInput from './FieldInput.vue'
 
-import UiField from './Field.vue'
+// Props.
+const props = defineProps<TUiFieldDateProps>()
 
-const props = defineProps<{
-	modelValue?: Date
-}>()
+// Emits.
+const emit = defineEmits<TUiFieldDateEmits>()
 
-const emit = defineEmits<{ (e: 'update:modelValue', v?: Date): void }>()
-
+// Etc.
 const valueStr = computed({
 	get: () => {
 		try {
 			const value = cFieldsSchema.shape.date.parse(props.modelValue)
-			const format = getDateCommonFormat(value)
-			return format
-		} catch (e) {}
+			return getDateCommonFormat(value)
+		} catch (e) { }
 	},
-	set: (val) => {
+	set: val => {
+		emit('update:error')
 		try {
 			const value = cFieldsSchema.shape.date.parse(val)
-			emit('update:modelValue', value)
-		} catch (e) {}
+			emit('update:model-value', value)
+		} catch (e) { }
 	}
 })
 </script>
 
 <template>
-	<ui-field type="date" class="ui-field-date" v-model="valueStr" />
+	<ui-field-input :="{ ...props, ...$attrs }" v-model="valueStr" type="date" />
 </template>

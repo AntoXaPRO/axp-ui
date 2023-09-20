@@ -1,15 +1,23 @@
+<script lang="ts">
+export type TUiIconVisibilityProps = {
+	modelValue?: boolean,
+	color?: boolean,
+	cursor?: boolean
+}
+
+export type TUiIconVisibilityEmits = {
+	(e: 'update:modelValue', v: boolean): void
+}
+</script>
+
 <script setup lang="ts">
 import UiIcon from './Icon.vue'
 
 // Props.
-const props = defineProps<{
-	modelValue?: boolean,
-	color?: boolean,
-	cursor?: boolean
-}>()
+const props = defineProps<TUiIconVisibilityProps>()
 
 // Emits.
-const emit = defineEmits<{ (e: 'update:modelValue', v: boolean): void }>()
+const emit = defineEmits<TUiIconVisibilityEmits>()
 </script>
 
 <template>

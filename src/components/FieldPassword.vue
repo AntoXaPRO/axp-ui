@@ -1,7 +1,16 @@
+<script lang="ts">
+import type { TUiFieldInputProps } from './FieldInput.vue'
+
+export type TFieldPasswordProps = TUiFieldInputProps<string>
+</script>
+
 <script setup lang="ts">
-import UiField from './Field.vue'
+import UiFieldInput from './FieldInput.vue'
+
+// Props.
+const props = defineProps<TFieldPasswordProps>()
 </script>
 
 <template>
-	<ui-field type="password" class="ui-field-password" />
+	<ui-field-input :="{ ...props, ...$attrs }" type="password" />
 </template>

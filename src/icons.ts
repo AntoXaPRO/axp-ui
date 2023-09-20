@@ -83,4 +83,4 @@ export const icons = {
 	`
 }
 
-export type TUiIcon = keyof typeof icons
+export type TIcon = keyof typeof icons

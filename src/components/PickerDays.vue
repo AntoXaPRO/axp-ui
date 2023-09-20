@@ -1,17 +1,25 @@
-<script setup lang="ts">
-import UiFieldCheckbox from './FieldCheckbox.vue'
-
-// Props.
-const props = defineProps<{
+<script lang="ts">
+export type TUiPickerDaysProps = {
 	modelValue?: number[]
 	label?: string
 	error?: string
 	readonly?: boolean
 	disabled?: boolean
-}>()
+}
+
+export type TUiPickerDaysEmits = {
+	(e: 'update:modelValue', v: number[]): void
+}
+</script>
+
+<script setup lang="ts">
+import UiFieldCheckbox from './FieldCheckbox.vue'
+
+// Props.
+const props = defineProps<TUiPickerDaysProps>()
 
 // Emits.
-const emit = defineEmits<{ (e: 'update:modelValue', v: number[]): void }>()
+const emit = defineEmits<TUiPickerDaysEmits>()
 
 // Init data.
 const days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']

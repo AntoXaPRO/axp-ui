@@ -1,26 +1,52 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { TColor } from '../colors'
 import type { TUiIcon } from '../icons'
 
-import UiIcon from './Icon.vue'
-
-// Props.
-const props = defineProps<{
+export type TUiBtnProps = {
 	label?: string
 	type?: 'button' | 'submit'
 	color?: TColor
 	icon?: TUiIcon
 	to?: string
-}>()
+}
+
+export type TUiBtnEmits = {
+	(e: 'click', v: PointerEvent): void
+}
+</script>
+
+<script setup lang="ts">
+import UiIcon from './Icon.vue'
+import { computed } from 'vue'
+
+// Props.
+const props = defineProps<TUiBtnProps>()
+
+// Emits.
+const emit = defineEmits<TUiBtnEmits>()
+
+// Handlers.
+const clickHandler = (e: PointerEvent) => emit('click', e)
+
+// Computed.
+const cssClass = computed(() => {
+	let obj: any = {
+		'ui-btn': true,
+		'ui-btn-icon': props.icon
+	}
+
+	if (props.color) obj[props.color] = true
+	return obj
+})
 </script>
 
 <template>
 	<component
-		class="ui-btn"
 		:is="props.to ? 'router-link' : 'button'"
 		:to="props.to"
-		:class="props.color"
 		:type="props.type"
+		@click="clickHandler"
+		:class="cssClass"
 	>
 		<ui-icon v-if="props.icon" :name="props.icon" />
 		<div v-if="props.label" class="label">{{ props.label }}</div>

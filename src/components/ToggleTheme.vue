@@ -1,17 +1,23 @@
 <script lang="ts">
-export type TTheme = 'light' | 'dark'
+export type TUiThemeName = 'light' | 'dark'
+
+export type TUiToggleThemeProps = {
+	modelValue?: TUiThemeName
+}
+
+export type TUiToggleThemeEmits = {
+	(e: 'update:modelValue', v: TUiThemeName): void
+}
 </script>
 
 <script setup lang="ts">
 import UiIcon from './Icon.vue'
 
 // Props.
-const props = defineProps<{
-	modelValue?: TTheme
-}>()
+const props = defineProps<TUiToggleThemeProps>()
 
 // Emits.
-const emit = defineEmits<{ (e: 'update:modelValue', v: TTheme): void }>()
+const emit = defineEmits<TUiToggleThemeEmits>()
 
 // Handlers.
 const clickHandler = ({}: PointerEvent) =>

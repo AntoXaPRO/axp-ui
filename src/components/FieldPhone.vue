@@ -1,22 +1,32 @@
+<script lang="ts">
+import type { TUiFieldInputProps, TUiFieldInputEmits } from './FieldInput.vue'
+
+export type TUiFieldPhoneProps = TUiFieldInputProps<number>
+export type TUiFieldPhoneEmits = TUiFieldInputEmits
+</script>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { getPhoneNumberFormat, getPhoneNumberValue } from 'axp-ts'
 
-import UiField from './Field.vue'
+import UiFieldInput from './FieldInput.vue'
 
 // Props.
-const props = defineProps<{ modelValue?: number }>()
+const props = defineProps<TUiFieldPhoneProps>()
 
 // Emits.
-const emit = defineEmits<{ (e: 'update:modelValue', v?: number): void }>()
+const emit = defineEmits<TUiFieldPhoneEmits>()
 
 // Value string.
 const valueStr = computed({
 	get: () => getPhoneNumberFormat(props.modelValue),
-	set: val => emit('update:modelValue', getPhoneNumberValue(val))
+	set: val => {
+		emit('update:error')
+		emit('update:model-value', getPhoneNumberValue(val))
+	}
 })
 </script>
 
 <template>
-	<ui-field v-model="valueStr" class="ui-field-phone" />
+	<ui-field-input :="{ ...props, ...$attrs }" v-model="valueStr" />
 </template>

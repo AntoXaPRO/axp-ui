@@ -1,14 +1,25 @@
-<script setup lang="ts">
+<script lang="ts">
 import type { TColor } from '../colors'
 
-// Props.
-const props = defineProps<{
+export type TUiAlertProps = {
 	color?: TColor
 	value?: string
 	close?: boolean
-}>()
+}
 
-const emit = defineEmits<{ (e: 'close'): void }>()
+export type TUiAlertEmits = {
+	(e: 'close'): void
+}
+</script>
+
+<script setup lang="ts">
+import UiIcon from './Icon.vue'
+
+// Props.
+const props = defineProps<TUiAlertProps>()
+
+// Emit.
+const emit = defineEmits<TUiAlertEmits>()
 </script>
 
 <template>

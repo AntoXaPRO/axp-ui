@@ -27,39 +27,45 @@
 
 // Ui.
 .ui
-  &-btn,
-  &-field .input
-    @apply outline-none
-    @apply h-[38px] text-base
-
   &-btn
-    @apply px-4 border
+    @apply h-[38px] text-base
     @apply flex justify-center items-center
+    @apply px-2 border
     > *:not(:last-child)
-      @apply mr-1
-    > .ui-icon:first-child
-      @apply ml-[-5px]
+      @apply mr-2
+    .label
+      @apply text-base font-normal
 
   &-field
-    .label
-      @apply mb-1
-    .input
-      @apply block w-full border px-2 py-2
+    &-wrap
+      .label
+        @apply mb-1
+      .input
+        @apply h-[38px] text-base
+        @apply block w-full border
+        > *
+          @apply w-full h-full px-2 py-2 outline-none
+    .description,
     .message
-      @apply mt-1 text-sm
+      @apply w-full pl-1 mt-1 text-sm
 
     &-checkbox
-      @apply flex items-center justify-start
-      .label
-        @apply mb-0
-      .input
-        @apply w-max order-first mr-2
-        @apply w-[24px] h-[24px] min-w-[24px] min-h-[24px]
-        @apply border rounded
+      @apply mb-4
+      .ui-field-wrap
+        @apply flex items-center justify-start
+        .label
+          @apply mb-0
+        .input
+          @apply w-max order-first mr-2
+          @apply w-[24px] h-[24px] min-w-[24px] min-h-[24px]
+          @apply border rounded
 
     &-textarea
       .input
-        @apply min-h-[80px]
+        @apply h-auto
+        > *
+          @apply min-h-[94px]
+          @apply leading-5
 
   &-alert
     @apply relative border
@@ -134,8 +140,8 @@
         @apply flex items-center justify-between py-2 px-3
         > .title
           @apply text-lg font-normal
-        .ui-icon
-          @apply w-[30px] h-[30px] p-0 border-0
+        .ui-icon-close
+          @apply w-[30px] h-[30px] p-0 border-0 cursor-pointer
           &:hover
             @apply text-dark
       &-content

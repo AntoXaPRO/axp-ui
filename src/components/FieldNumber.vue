@@ -1,7 +1,16 @@
+<script lang="ts">
+import type { TUiFieldInputProps } from './FieldInput.vue'
+
+export type TUiFieldNumberProps = TUiFieldInputProps<number>
+</script>
+
 <script setup lang="ts">
-import UiField from './Field.vue'
+import UiFieldInput from './FieldInput.vue'
+
+// Props.
+const props = defineProps<TUiFieldNumberProps>()
 </script>
 
 <template>
-	<ui-field type="number" class="ui-field-number" />
+	<ui-field-input :="{ ...props, ...$attrs }" type="number" />
 </template>

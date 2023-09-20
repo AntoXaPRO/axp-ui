@@ -33,16 +33,19 @@
       @apply text-white bg-light border-light
 
   &-field
-    .input
+    .input > *
       @apply bg-white dark:bg-white/10 text-dark dark:text-white
+    .description
+      @apply text-dark/50
     &.error
       .label,
       .input,
       .message
         @apply text-error border-error
-    &:disabled
+    &.disabled
+      @apply text-dark/60
       .input
-        @apply bg-light/10 text-dark/60
+        @apply bg-light/10
   &-btn
     @apply outline-none
     &:hover:not(:active)
@@ -51,5 +54,6 @@
   &-btn,
   &-alert,
   &-field .input,
+  &-field .input > *,
   &-card
       @apply rounded

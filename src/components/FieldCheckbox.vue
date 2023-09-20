@@ -1,31 +1,51 @@
+<script lang="ts">
+import type { TUiFiledWrapperProps } from './FieldWrapper.vue'
+
+export type TUiFieldCheckboxProps = TUiFiledWrapperProps & {
+	modelValue?: boolean
+}
+
+export type TUiFieldCheckboxEmits = {
+	(e: 'input', v: Event): void
+	(e: 'update:model-value', v?: boolean): void
+	(e: 'update:error', v?: string): void
+}
+</script>
+
 <script setup lang="ts">
-import UiField from './Field.vue'
-import { computed } from 'vue'
+import UiFieldWrapper from './FieldWrapper.vue'
 
 // Props.
-const props = defineProps<{
-	modelValue?: boolean
-	disabled?: boolean
-	readonly?: boolean
-}>()
+const props = defineProps<TUiFieldCheckboxProps>()
 
 // Emits.
-const emit = defineEmits<{ (e: 'update:modelValue', v?: boolean): void }>()
-
-// Value.
-const value = computed(() => props.modelValue)
+const emit = defineEmits<TUiFieldCheckboxEmits>()
 
 // Handlers.
-const updateHandler = () => emit('update:modelValue', !props.modelValue)
+const inputHandler = (val: Event) => {
+	emit('input', val)
+	emit('update:error')
+
+	if (val.target instanceof HTMLInputElement) {
+		emit('update:model-value', !props.modelValue)
+	}
+}
 </script>
 
 <template>
-	<ui-field
-		type="checkbox"
-		class="ui-field-checkbox"
-		:checked="value"
+	<ui-field-wrapper
+		:label="props.label"
+		:error="props.error"
 		:disabled="props.disabled"
 		:readonly="props.readonly"
-		@input="updateHandler"
-	/>
+		:description="props.description"
+		class="ui-field-checkbox"
+	>
+		<input
+			type="checkbox"
+			:checked="props.modelValue"
+			:disabled="props.disabled || props.readonly"
+			@input="inputHandler"
+		/>
+	</ui-field-wrapper>
 </template>
