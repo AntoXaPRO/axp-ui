@@ -19,7 +19,11 @@ const emit = defineEmits<TUiFieldPhoneEmits>()
 
 // Value string.
 const valueStr = computed({
-	get: () => getPhoneNumberFormat(props.modelValue),
+	get: () => {
+		if (props.modelValue) {
+			return getPhoneNumberFormat(props.modelValue)
+		}
+	},
 	set: val => {
 		emit('update:error')
 		emit('update:model-value', getPhoneNumberValue(val))
