@@ -1,13 +1,14 @@
 <script lang="ts">
 import type { TColor } from '../colors'
-import type { TUiIcon } from '../icons'
+import type { TIcon } from '../icons'
 
 export type TUiBtnProps = {
 	label?: string
 	type?: 'button' | 'submit'
 	color?: TColor
-	icon?: TUiIcon
+	icon?: TIcon
 	to?: string
+	disabled?: boolean
 }
 
 export type TUiBtnEmits = {
@@ -47,6 +48,7 @@ const cssClass = computed(() => {
 		:type="props.type"
 		@click="clickHandler"
 		:class="cssClass"
+		:disabled="props.disabled"
 	>
 		<ui-icon v-if="props.icon" :name="props.icon" />
 		<div v-if="props.label" class="label">{{ props.label }}</div>
