@@ -4,13 +4,12 @@ import dts from 'vite-plugin-dts'
 
 import postcss from 'postcss'
 
-import autoprefixer from 'autoprefixer'
 import tailwindcss from 'tailwindcss'
 
 export default defineConfig({
 	plugins: [vue(), dts()],
 	css: {
-		postcss: postcss([autoprefixer(), tailwindcss()])
+		postcss: postcss([tailwindcss()])
 	},
 	build: {
 		lib: {
