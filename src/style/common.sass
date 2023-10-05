@@ -149,3 +149,17 @@
   &-toggle-theme
     .ui-icon
       @apply cursor-pointer
+  &-pagination
+    .pages
+      @apply flex
+      &-first,
+      &-numbers,
+      &-last
+        @apply flex items-end
+      .page-item
+          @apply w-[38px] h-[38px]
+      .page-separator
+        @apply block mx-2
+      &-numbers
+        .page-item:not(:last-child)
+          @apply mr-2

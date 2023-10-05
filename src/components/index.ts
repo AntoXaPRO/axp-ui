@@ -63,3 +63,6 @@ export * from './PickerDays.vue'
 
 export { default as UiForm } from './Form.vue'
 export * from './Form.vue'
+
+export { default as UiPagination } from './Pagination.vue'
+export * from './Pagination.vue'

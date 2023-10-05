@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { cFieldsSchema } from 'axp-ts'
+import { cFieldsSchema, Pagination } from 'axp-ts'
 import { colors, icons } from '.'
 import {
 	UiBtn,
@@ -20,7 +20,8 @@ import {
 	UiFieldFile,
 	UiTable,
 	UiCard,
-	UiPickerDays
+	UiPickerDays,
+	UiPagination
 } from './components'
 
 // Test fields.
@@ -51,6 +52,9 @@ const days = ref([1, 3, 5])
 
 // File.
 const testFileValue = ref<FileList | undefined>()
+
+// Pagination.
+const pagination = ref(new Pagination({ page: 4, total: 93 }).toObject())
 </script>
 
 <template>
@@ -278,8 +282,15 @@ const testFileValue = ref<FileList | undefined>()
 						</div>
 					</div>
 
+					<div class="item pagination">
+						<div class="item-title">Pagination</div>
+						<div class="item-content">
+							<UiPagination v-model="pagination" />
+						</div>
+					</div>
+
 					<div class="item complex">
-						<div class="item-title">Сложные элементы</div>
+						<div class="item-title">Complex elements</div>
 						<div class="item-content">
 							<div class="grid grid-cols-2 gap-4">
 								<ui-card title="Карточка">
