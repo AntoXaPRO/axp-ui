@@ -43,9 +43,11 @@
       .message
         @apply text-error border-error
     &.disabled
-      @apply text-dark/60
+      @apply text-dark/30
       .input
-        @apply bg-light/10
+        > *
+          @apply bg-light
+          @apply text-dark/30
   &-btn
     @apply outline-none
     &:hover:not(:active)
