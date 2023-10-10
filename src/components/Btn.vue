@@ -46,9 +46,9 @@ const cssClass = computed(() => {
 		:is="props.to ? 'router-link' : 'button'"
 		:to="props.to"
 		:type="props.type"
-		@click="clickHandler"
 		:class="cssClass"
 		:disabled="props.disabled"
+		@click="clickHandler"
 	>
 		<ui-icon v-if="props.icon" :name="props.icon" />
 		<div v-if="props.label" class="label">{{ props.label }}</div>
