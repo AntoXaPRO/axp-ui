@@ -1,7 +1,7 @@
 {
 	"name": "axp-ui",
 	"descriiption": "My helper ui lib",
-	"version": "1.8.6",
+	"version": "1.8.7",
 	"homepage": "https://antoxahub.ru/antoxa/axp-ui",
 	"repository": {
 		"type": "git",
@@ -30,7 +30,7 @@
 		"build": "vite build",
 		"build:storybook": "storybook build -o docs",
 		"dev": "storybook dev -p 6006",
-		"prepare": "npm run build:storybook && npm run build"
+		"prepare": "npm run build"
 	},
 	"peerDependencies": {
 		"axp-ts": "^1.11.3",
