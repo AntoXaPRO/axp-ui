@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { UiBtn, colors, icons } from '..'
+import '../../dist/style.css'
 
 const iconNames = Object.keys(icons)
 
