@@ -2,9 +2,11 @@
 import type { TColor } from '../colors'
 import type { TIcon } from '../icons'
 
+export type TUiBtnType = 'button' | 'submit'
+
 export type TUiBtnProps = {
 	label?: string
-	type?: 'button' | 'submit'
+	type?: TUiBtnType
 	color?: TColor
 	icon?: TIcon
 	to?: string

@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-	content: ['./src/App.vue', './src/components/**/*.vue'],
+	content: ['./src/app/App.vue', './src/components/**/*.vue'],
 	darkMode: 'class',
 	theme: {
 		extend: {

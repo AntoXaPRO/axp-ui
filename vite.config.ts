@@ -25,5 +25,8 @@ export default defineConfig({
 				}
 			}
 		}
+	},
+	server: {
+		open: 'docs/index.html'
 	}
 })
