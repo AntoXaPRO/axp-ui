@@ -28,8 +28,8 @@
 	],
 	"scripts": {
 		"build": "vite build",
-		"build:storybook": "storybook build -c src/stories/.storybook -o docs",
-		"dev": "storybook dev -p 6006 -c src/stories/.storybook",
+		"build:storybook": "storybook build -o docs",
+		"dev": "storybook dev -p 6006",
 		"prepare": "npm run build:storybook && npm run build"
 	},
 	"peerDependencies": {
