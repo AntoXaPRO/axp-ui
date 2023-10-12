@@ -23,8 +23,6 @@ import { Pagination } from 'axp-ts'
 
 // Props.
 const props = withDefaults(defineProps<TUiPaginationProps>(), {
-	// @ts-ignore
-	modelValue: new Pagination().toObject(),
 	length: 3
 })
 
@@ -32,7 +30,7 @@ const props = withDefaults(defineProps<TUiPaginationProps>(), {
 const emit = defineEmits<TUiPaginationEmits>()
 
 // Data.
-const page = computed(() => props.modelValue.page || 1)
+const page = computed(() => props.modelValue?.page || 1)
 const pages = computed(() => {
 	let pages: TUiPaginationPage[] = []
 
@@ -53,7 +51,7 @@ const pages = computed(() => {
 	// Next pages.
 	for (let i = 1; i <= length; i++) {
 		const value = page.value + i
-		if (value > (props.modelValue.pages || 0)) break
+		if (value > (props.modelValue?.pages || 0)) break
 		pages.push({ value })
 	}
 	// for(page in props.modelValue)
@@ -70,13 +68,13 @@ const updateHandler = (page: number) => {
 const isShowFirst = computed(() => page.value - props.length > 0)
 const isShowLast = computed(
 	() =>
-		props.modelValue.pages &&
+		props.modelValue?.pages &&
 		page.value + props.length < props.modelValue.pages
 )
 </script>
 
 <template>
-	<div v-if="props.modelValue.pages" class="ui-pagination">
+	<div v-if="props.modelValue" class="ui-pagination">
 		<div class="pages">
 			<div v-if="isShowFirst" class="pages-first">
 				<UiBtn
