@@ -67,6 +67,14 @@
           @apply min-h-[94px]
           @apply leading-5
 
+    &-range
+      .input
+        @apply border-0
+        @apply flex flex-row items-center
+        input[type="range"]
+          @apply w-full cursor-pointer rounded
+          @apply h-2 outline-none appearance-none
+
   &-alert
     @apply relative border
     &:not(:last-child)

@@ -1,9 +1,9 @@
 <script lang="ts">
-import type { TUiFiledWrapperProps } from './FieldWrapper.vue'
+import type { TUiFieldWrapperProps } from './FieldWrapper.vue'
 
 type TModelValue = FileList
 
-export type TUiFieldFileProps = TUiFiledWrapperProps & {
+export type TUiFieldFileProps = TUiFieldWrapperProps & {
 	modelValue?: TModelValue
 	multiple?: boolean
 	accept?: string

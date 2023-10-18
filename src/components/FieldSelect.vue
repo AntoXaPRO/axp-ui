@@ -1,7 +1,7 @@
 <script lang="ts">
-import type { TUiFiledWrapperProps } from './FieldWrapper.vue'
+import type { TUiFieldWrapperProps } from './FieldWrapper.vue'
 
-export type TUiFieldSelectProps = TUiFiledWrapperProps & {
+export type TUiFieldSelectProps = TUiFieldWrapperProps & {
 	modelValue?: string | string[] | number | number[]
 	options?: { text: string; value: string | number }[]
 	multiple?: boolean

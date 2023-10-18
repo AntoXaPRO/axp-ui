@@ -80,6 +80,20 @@ export const icons = {
 	`,
 	visibility_off: `
   	<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+	`,
+	star: `
+		<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+	`,
+	rub: `
+		<path d="M11 8V17" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="M9 15H15" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="M11 8H13.5C16.5 8 16.5 12 13.5 12H9" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="M3 12C3 4.5885 4.5885 3 12 3C19.4115 3 21 4.5885 21 12C21 19.4115 19.4115 21 12 21C4.5885 21 3 19.4115 3 12Z"/>
+	`,
+	payment: `
+		<rect x="3" y="6" width="18" height="13" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="M3 10H20.5" stroke-linecap="round" stroke-linejoin="round"/>
+		<path d="M7 15H9" stroke-linecap="round" stroke-linejoin="round"/>
 	`
 }
 

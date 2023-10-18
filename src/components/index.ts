@@ -40,6 +40,9 @@ export * from './FieldPassword.vue'
 export { default as UiFieldPhone } from './FieldPhone.vue'
 export * from './FieldPhone.vue'
 
+export { default as UiFieldRange } from './FieldRange.vue'
+export * from './FieldRange.vue'
+
 export { default as UiFieldDate } from './FieldDate.vue'
 export * from './FieldDate.vue'
 

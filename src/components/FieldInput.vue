@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { TUiFiledWrapperProps } from './FieldWrapper.vue'
+import type { TUiFieldWrapperProps } from './FieldWrapper.vue'
 
 export type TUiFieldInputProps<T extends string | number | Date> =
-	TUiFiledWrapperProps & {
+	TUiFieldWrapperProps & {
 		type?: 'text' | 'number' | 'password' | 'date' | 'checkbox'
 		modelValue?: T
 		placeholder?: string

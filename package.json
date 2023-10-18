@@ -1,7 +1,7 @@
 {
 	"name": "axp-ui",
 	"descriiption": "My helper ui lib",
-	"version": "1.9.0",
+	"version": "1.10.0",
 	"homepage": "https://antoxahub.ru/antoxa/axp-ui",
 	"repository": {
 		"type": "git",
@@ -46,6 +46,7 @@
 		"@storybook/vue3": "^7.4.6",
 		"@storybook/vue3-vite": "^7.4.6",
 		"@vitejs/plugin-vue": "^4.4.0",
+		"autoprefixer": "^10.4.16",
 		"postcss": "^8.4.31",
 		"prettier": "^2.8.8",
 		"react": "^18.2.0",

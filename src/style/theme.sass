@@ -33,8 +33,9 @@
       @apply text-white bg-light border-light
 
   &-field
-    .input > *
-      @apply bg-white dark:bg-white/10 text-dark dark:text-white
+    .input 
+      & > *
+        @apply bg-white dark:bg-white/10 text-dark dark:text-white
     .description
       @apply text-dark/50
     &.error
@@ -48,6 +49,10 @@
         > *
           @apply bg-light
           @apply text-dark/30
+    &-range
+      .input
+        input[type="range"]
+          @apply bg-dark/10 accent-primary
   &-btn
     @apply outline-none
     &:hover:not(:active)

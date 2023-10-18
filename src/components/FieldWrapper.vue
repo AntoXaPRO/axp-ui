@@ -1,5 +1,5 @@
 <script lang="ts">
-export type TUiFiledWrapperProps = {
+export type TUiFieldWrapperProps = {
 	label?: string
 	error?: string
 	disabled?: boolean
@@ -10,7 +10,7 @@ export type TUiFiledWrapperProps = {
 
 <script setup lang="ts">
 // Props.
-const props = defineProps<TUiFiledWrapperProps>()
+const props = defineProps<TUiFieldWrapperProps>()
 </script>
 
 <template>

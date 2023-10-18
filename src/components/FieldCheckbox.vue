@@ -1,7 +1,7 @@
 <script lang="ts">
-import type { TUiFiledWrapperProps } from './FieldWrapper.vue'
+import type { TUiFieldWrapperProps } from './FieldWrapper.vue'
 
-export type TUiFieldCheckboxProps = TUiFiledWrapperProps & {
+export type TUiFieldCheckboxProps = TUiFieldWrapperProps & {
 	modelValue?: boolean
 }
 
