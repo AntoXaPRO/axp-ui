@@ -37,7 +37,6 @@ const cssClass = computed(() => {
 		'ui-btn': true,
 		'ui-btn-icon': props.icon
 	}
-
 	if (props.color) obj[props.color] = true
 	return obj
 })
