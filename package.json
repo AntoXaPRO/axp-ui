@@ -1,7 +1,7 @@
 {
 	"name": "axp-ui",
 	"descriiption": "My helper ui lib",
-	"version": "1.12.0",
+	"version": "1.12.1",
 	"homepage": "https://antoxahub.ru/antoxa/axp-ui",
 	"repository": {
 		"type": "git",

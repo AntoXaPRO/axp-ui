@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { TUiIcon } from '../icons'
+import type { TIcon } from '../icons'
 
 export type TUiIconProps = {
-	name: TUiIcon
+	name: TIcon
 	fill?: boolean
 }
 </script>
